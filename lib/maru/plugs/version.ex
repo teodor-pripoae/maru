@@ -11,7 +11,7 @@ defmodule Maru.Plugs.Version do
          maru_route_path:    route_path
        } -> conn
          |> Conn.put_private(:maru_resource_path, rest)
-         |> Conn.put_private(:maru_route_path, [version | route_path])
+         |> Conn.put_private(:maru_route_path, route_path ++ [version])
          |> Conn.put_private(:maru_version, version)
       _  -> conn
     end
